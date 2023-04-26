@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev</loc>
+    <lastmod>2023-04-25T00:47:03.853Z</lastmod>
+  </url>
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev/resume/</loc>
+    <priority>0.3</priority>
+    <lastmod>2021-06-09T20:44:56.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev/blog/</loc>
+    <priority>0.3</priority>
+    <lastmod>2019-01-05T11:38:29.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev/vue-js/</loc>
+    <priority>0.3</priority>
+    <lastmod>2017-11-03T06:53:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev/contact-me/</loc>
+    <priority>0.3</priority>
+    <lastmod>2020-06-30T17:35:56.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev/portfolio/</loc>
+    <priority>0.3</priority>
+    <lastmod>2020-10-13T03:40:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://next-wordpress-starter.spacejelly.dev/home/</loc>
+    <priority>0.3</priority>
+    <lastmod>2020-10-05T23:06:37.000Z</lastmod>
+  </url>
+</urlset>

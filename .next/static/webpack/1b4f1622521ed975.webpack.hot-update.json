@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/websites/[slug]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FApplications%2FMAMP%2Fhtdocs%2Fportfolio%2Fsrc%2Fpages%2Fwebsites%2F%5Bslug%5D.js&page=%2Fwebsites%2F%5Bslug%5D!","./src/data/websites.js","./src/lib/websites.js","./src/pages/websites/[slug].js"]}

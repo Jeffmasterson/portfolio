@@ -1,0 +1,97 @@
+@import "styles/settings/__settings";
+
+.postCard {
+  position: relative;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+
+  & > a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      h3 {
+        color: $color-primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.containerImage {
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    .overlay {
+      opacity: 1;
+    }
+  }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(46,53,61,.81);
+}
+
+.postCardSticky {
+  border: solid 0.02em $color-gray-100;
+  border-radius: 1em;
+
+  svg {
+    position: absolute;
+    top: 1.2em;
+    right: 1em;
+    font-size: 1.15em;
+    color: $color-gray-300;
+  }
+}
+
+.WebsiteCardImage{
+  width: 100%;
+}
+
+.WebsiteCardTitle {
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: 0;
+}
+
+.postCardContent {
+  font-size: 1.25em;
+  margin: 0;
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.WebsiteCardLink {
+  color: #fff;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.postCardMetadata {
+  margin: -0.8em -0.8em 0.4em;
+}
