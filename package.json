@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Colby Fayock <hello@colbyfayock.com>",
   "scripts": {
-    "build": "next build",
+    "next build && next export": "next build",
     "dev": "next dev",
     "export": "next export",
     "format": "yarn lint --fix",
