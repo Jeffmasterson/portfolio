@@ -1,6 +1,6 @@
 import usePageMetadata from 'hooks/use-page-metadata';
 
-import { getPaginatedPosts } from 'lib/websites';
+import { getPaginatedPosts } from 'lib/portfolio';
 
 import TemplateArchive from 'templates/website-archive';
 

@@ -23,7 +23,7 @@ import {
  */
 
 export function postPathBySlug(slug) {
-  return `/websites/${slug}`;
+  return `/portfolio/${slug}`;
 }
 
 /**

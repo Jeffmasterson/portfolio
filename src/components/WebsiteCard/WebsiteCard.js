@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { postPathBySlug, mapPostData } from 'lib/websites';
+import { postPathBySlug, mapPostData } from 'lib/portfolio';
 
 import Metadata from 'components/Metadata';
 
