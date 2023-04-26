@@ -158,7 +158,7 @@ export async function getStaticPaths() {
 
       return {
         params: {
-          slugParent: segments.shift(),
+          slugParent: 'portfolio',
           slugChild: segments,
         },
       };

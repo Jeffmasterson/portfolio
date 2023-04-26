@@ -227,7 +227,7 @@ export async function getRecentPosts({ count, ...options }) {
   const { posts } = await getAllPosts(options);
   const sorted = sortObjectsByDate(posts);
   return {
-    websites: sorted.slice(0, count),
+    posts: sorted.slice(0, count),
   };
 }
 
@@ -263,8 +263,8 @@ export function sanitizeExcerpt(excerpt) {
  * mapPostData
  */
 
-export function mapPostData(website = {}) {
-  const data = { ...website };
+export function mapPostData(portfolio_work = {}) {
+  const data = { ...portfolio_work };
 
   if (data.featuredImage) {
     data.featuredImage = data.featuredImage.node;

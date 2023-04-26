@@ -5,7 +5,7 @@ import { getPaginatedPosts } from 'lib/portfolio';
 import TemplateArchive from 'templates/website-archive';
 
 export default function Posts({ posts, pagination }) {
-  const title = 'All Websites';
+  const title = 'All Posts';
   const slug = 'portfolio';
 
   const { metadata } = usePageMetadata({
@@ -14,6 +14,7 @@ export default function Posts({ posts, pagination }) {
       description: false,
     },
   });
+
   return <TemplateArchive title={title} posts={posts} slug={slug} pagination={pagination} metadata={metadata} />;
 }
 
