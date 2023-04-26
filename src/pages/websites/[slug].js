@@ -183,12 +183,12 @@ export async function getStaticPaths() {
   // Tip: this can be customized to use data or analytitcs to determine the
   // most popular posts and render those instead
 
-  const { posts } = await getRecentPosts({
+  const { websites } = await getRecentPosts({
     count: process.env.POSTS_PRERENDER_COUNT, // Update this value in next.config.js!
     queryIncludes: 'index',
   });
 
-  const paths = posts
+  const paths = websites
     .filter(({ slug }) => typeof slug === 'string')
     .map(({ slug }) => ({
       params: {
