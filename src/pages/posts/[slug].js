@@ -65,9 +65,10 @@ export default function Post({ post, socialImage, related }) {
   const { posts: relatedPostsList, title: relatedPostsTitle } = related || {};
 
   const helmetSettings = helmetSettingsFromMetadata(metadata);
-
+  console.log(featuredImage.sourceUrl, 'test')
   return (
     <Layout>
+
       <Helmet {...helmetSettings} />
 
       <ArticleJsonLd post={post} siteTitle={siteMetadata.title} />

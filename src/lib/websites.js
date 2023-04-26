@@ -7,12 +7,14 @@ import {
   QUERY_ALL_WEBSITES,
   QUERY_ALL_WEBSITES_ARCHIVE,
   QUERY_ALL_WEBSITES_INDEX,
+  QUERY_WEBSITES_BY_AUTHOR_SLUG_INDEX,
+  QUERY_WEBSITES_BY_AUTHOR_SLUG_ARCHIVE,
   QUERY_WEBSITES_BY_AUTHOR_SLUG,
   QUERY_WEBSITES_BY_CATEGORY_ID_INDEX,
   QUERY_WEBSITES_BY_CATEGORY_ID_ARCHIVE,
   QUERY_WEBSITES_BY_CATEGORY_ID,
   QUERY_POST_PER_PAGE,
-  QUERY_WEBSITE_BY_SLUG
+  QUERY_WEBSITE_BY_SLUG,
 } from 'data/websites';
 
 
@@ -21,7 +23,7 @@ import {
  */
 
 export function postPathBySlug(slug) {
-  return `/portfolio_work/${slug}`;
+  return `/portfolio/${slug}`;
 }
 
 /**
@@ -47,9 +49,9 @@ export async function getPostBySlug(slug) {
     throw e;
   }
 
-  if (!postData?.data.post) return { post: undefined };
+  if (!postData?.data.websites) return { post: undefined };
 
-  const post = [postData?.data.post].map(mapPostData)[0];
+  const post = [postData?.data.websites].map(mapPostData)[0];
 
   // If the SEO plugin is enabled, look up the data
   // and apply it to the default settings
@@ -122,7 +124,7 @@ export async function getPostBySlug(slug) {
  * getAllPosts
  */
 
-const allPostsIncludesTypes = {
+const allWebsitesIncludesTypes = {
   all: QUERY_ALL_WEBSITES,
   archive: QUERY_ALL_WEBSITES_ARCHIVE,
   index: QUERY_ALL_WEBSITES_INDEX,
@@ -134,18 +136,87 @@ export async function getAllPosts(options = {}) {
   const apolloClient = getApolloClient();
 
   const data = await apolloClient.query({
-    query: allPostsIncludesTypes[queryIncludes],
+    query: allWebsitesIncludesTypes[queryIncludes],
   });
 
   const posts = data?.data.websites.edges.map(({ node = {} }) => node);
+
+  return {
+    posts
+  };
+}
+
+/**
+ * getPostsByAuthorSlug
+ */
+
+const postsByAuthorSlugIncludesTypes = {
+  all: QUERY_WEBSITES_BY_AUTHOR_SLUG,
+  archive: QUERY_WEBSITES_BY_AUTHOR_SLUG_ARCHIVE,
+  index: QUERY_WEBSITES_BY_AUTHOR_SLUG_INDEX,
+};
+
+export async function getPostsByAuthorSlug({ slug, ...options }) {
+  const { queryIncludes = 'index' } = options;
+
+  const apolloClient = getApolloClient();
+
+  let postData;
+
+  try {
+    postData = await apolloClient.query({
+      query: postsByAuthorSlugIncludesTypes[queryIncludes],
+      variables: {
+        slug,
+      },
+    });
+  } catch (e) {
+    console.log(`[posts][getPostsByAuthorSlug] Failed to query post data: ${e.message}`);
+    throw e;
+  }
+
+  const posts = postData?.data.websites.edges.map(({ node = {} }) => node);
 
   return {
     posts: Array.isArray(posts) && posts.map(mapPostData),
   };
 }
 
+/**
+ * getPostsByCategoryId
+ */
 
+const postsByCategoryIdIncludesTypes = {
+  all: QUERY_WEBSITES_BY_CATEGORY_ID,
+  archive: QUERY_WEBSITES_BY_CATEGORY_ID_ARCHIVE,
+  index: QUERY_WEBSITES_BY_CATEGORY_ID_INDEX,
+};
 
+export async function getPostsByCategoryId({ categoryId, ...options }) {
+  const { queryIncludes = 'index' } = options;
+
+  const apolloClient = getApolloClient();
+
+  let postData;
+
+  try {
+    postData = await apolloClient.query({
+      query: postsByCategoryIdIncludesTypes[queryIncludes],
+      variables: {
+        categoryId,
+      },
+    });
+  } catch (e) {
+    console.log(`[posts][getPostsByCategoryId] Failed to query post data: ${e.message}`);
+    throw e;
+  }
+
+  const posts = postData?.data.websites.edges.map(({ node = {} }) => node);
+
+  return {
+    posts: Array.isArray(posts) && posts.map(mapPostData),
+  };
+}
 
 
 /**
@@ -156,7 +227,7 @@ export async function getRecentPosts({ count, ...options }) {
   const { posts } = await getAllPosts(options);
   const sorted = sortObjectsByDate(posts);
   return {
-    posts: sorted.slice(0, count),
+    websites: sorted.slice(0, count),
   };
 }
 
@@ -192,41 +263,19 @@ export function sanitizeExcerpt(excerpt) {
  * mapPostData
  */
 
-export function mapPostData(post = {}) {
-  const data = { ...post };
-
-  // Clean up the author object to avoid someone having to look an extra
-  // level deeper into the node
-
-  if (data.author) {
-    data.author = {
-      ...data.author.node,
-    };
-  }
-
-  // The URL by default that comes from Gravatar / WordPress is not a secure
-  // URL. This ends up redirecting to https, but it gives mixed content warnings
-  // as the HTML shows it as http. Replace the url to avoid those warnings
-  // and provide a secure URL by default
-
-  if (data.author?.avatar) {
-    data.author.avatar = updateUserAvatar(data.author.avatar);
-  }
-
-  // Clean up the categories to make them more easy to access
-
-  if (data.categories) {
-    data.categories = data.categories.edges.map(({ node }) => {
-      return {
-        ...node,
-      };
-    });
-  }
-
-  // Clean up the featured image to make them more easy to access
+export function mapPostData(website = {}) {
+  const data = { ...website };
 
   if (data.featuredImage) {
     data.featuredImage = data.featuredImage.node;
+  }
+
+  if (data.parent) {
+    data.parent = data.parent.node;
+  }
+
+  if (data.children) {
+    data.children = data.children.edges.map(({ node }) => node);
   }
 
   return data;

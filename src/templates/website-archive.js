@@ -12,7 +12,7 @@ import SectionTitle from 'components/SectionTitle';
 import WebsiteCard from 'components/WebsiteCard';
 import Pagination from 'components/Pagination/Pagination';
 
-import styles from 'styles/templates/Archive.module.scss';
+import styles from 'styles/templates/WebsiteArchive.module.scss';
 
 const DEFAULT_POST_OPTIONS = {};
 
@@ -41,23 +41,9 @@ export default function TemplateArchive({
 
             <WebpageJsonLd title={title} description={metadata.description} siteTitle={siteMetadata.title} slug={slug} />
 
-            <Header>
-                <Container>
-                    <h1>{Title || title}</h1>
-                    {metadata.description && (
-                        <p
-                            className={styles.archiveDescription}
-                            dangerouslySetInnerHTML={{
-                                __html: metadata.description,
-                            }}
-                        />
-                    )}
-                </Container>
-            </Header>
 
-            <Section>
 
-                    <SectionTitle>Websites</SectionTitle>
+            <Section className={styles.WebsiteArchive}>
                     {Array.isArray(posts) && (
                         <>
                             <ul className={styles.posts}>
@@ -65,17 +51,12 @@ export default function TemplateArchive({
                                     return (
                                         <li key={post.slug}>
                                             <WebsiteCard post={post} options={postOptions} />
+
                                         </li>
                                     );
                                 })}
                             </ul>
-                            {pagination && (
-                                <Pagination
-                                    currentPage={pagination?.currentPage}
-                                    pagesCount={pagination?.pagesCount}
-                                    basePath={pagination?.basePath}
-                                />
-                            )}
+
                         </>
                     )}
 

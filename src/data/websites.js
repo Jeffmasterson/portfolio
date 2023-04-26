@@ -98,6 +98,33 @@ export const QUERY_ALL_WEBSITES = gql`
   }
 `;
 
+export const QUERY_WEBSITES_BY_AUTHOR_SLUG_INDEX = gql`
+  ${WEBSITE_FIELDS}
+  query PostByAuthorSlugIndex($slug: String!) {
+    websites(where: { authorName: $slug, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_WEBSITES_BY_AUTHOR_SLUG_ARCHIVE = gql`
+  ${WEBSITE_FIELDS}
+  query PostByAuthorSlugArchive($slug: String!) {
+    websites(where: { authorName: $slug, hasPassword: false }) {
+      edges {
+        node {
+          ...PostFields
+          excerpt
+        }
+      }
+    }
+  }
+`;
+
 export const QUERY_WEBSITES_BY_AUTHOR_SLUG = gql`
   ${WEBSITE_FIELDS}
   query PostByAuthorSlug($slug: String!) {

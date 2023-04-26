@@ -9,7 +9,7 @@ import Header from 'components/Header';
 import Section from 'components/Section';
 import Container from 'components/Container';
 import SectionTitle from 'components/SectionTitle';
-import WebsiteCard from 'components/PostCard';
+import PostCard from 'components/PostCard';
 import Pagination from 'components/Pagination/Pagination';
 
 import styles from 'styles/templates/Archive.module.scss';
@@ -64,7 +64,7 @@ export default function TemplateArchive({
                 {posts.map((post) => {
                   return (
                     <li key={post.slug}>
-                      <WebsiteCard post={post} options={postOptions} />
+                      <PostCard post={post} options={postOptions} />
                     </li>
                   );
                 })}

@@ -1,14 +1,15 @@
 import Link from 'next/link';
 
-import { postPathBySlug, sanitizeExcerpt } from 'lib/websites';
+import { postPathBySlug, mapPostData } from 'lib/websites';
 
 import Metadata from 'components/Metadata';
 
 import { FaMapPin } from 'react-icons/fa';
 import styles from './WebsiteCard.module.scss';
+import FeaturedImage from "../FeaturedImage";
 
 const WebsiteCard = ({ post, options = {} }) => {
-  const { title, excerpt, slug, date, author, categories, isSticky = false } = post;
+  const { title, excerpt, featuredImage, slug, date, author, categories, isSticky = false } = post;
   const { excludeMetadata = [] } = options;
 
   const metadata = {};

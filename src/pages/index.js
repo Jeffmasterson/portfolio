@@ -21,20 +21,6 @@ export default function Home({ posts, pagination }) {
       <Header>
           <h1>Hi, I'm Jeff. I design & build user interfaces.</h1>
       </Header>
-      <Section>
-        <Container>
-          <h2 className="sr-only">Posts</h2>
-          <ul className={styles.posts}>
-            {posts.map((post) => {
-              return (
-                  <li key={post.slug}>
-                    <WebsiteCard post={post} />
-                  </li>
-              );
-            })}
-          </ul>
-        </Container>
-      </Section>
     </Layout>
   );
 }
