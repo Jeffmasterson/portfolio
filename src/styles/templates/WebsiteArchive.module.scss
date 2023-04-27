@@ -23,5 +23,17 @@
   & > li {
     margin: 0;
     width: 25%;
+
+    @media (max-width: 1199px){
+      width: 33.33333%;
+    }
+
+    @media (max-width: 991px){
+      width: 50%;
+    }
+
+    @media (max-width: 576px){
+      width: 100%;
+    }
   }
 }

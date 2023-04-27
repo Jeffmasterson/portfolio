@@ -3,6 +3,11 @@
 @import "styles/components/_container";
 
 .header {
+  height: 100vh;
+  background-image: url('https://www.jeffmastersonjr.com/wp-content/uploads/2017/06/coding-background-min.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-top: -75px;
 
   .container  {
     display: flex;
@@ -16,8 +21,7 @@
     line-height: 1.15;
     font-size: 3rem;
     text-align: center;
-    color: #2e353d;
-    margin-top: 60px;
+    color: #fff;
 
     @media (min-width: 480px) {
       font-size: 4rem;

@@ -16,7 +16,6 @@ import FeaturedImage from 'components/FeaturedImage';
 import Breadcrumbs from 'components/Breadcrumbs';
 
 import styles from 'styles/pages/Page.module.scss';
-import WebsiteImage from "../../components/WebsiteImage";
 
 export default function Page({ page, breadcrumbs }) {
   const { title, metaTitle, description, slug, content, featuredImage, children } = page;
@@ -41,6 +40,7 @@ export default function Page({ page, breadcrumbs }) {
   const hasBreadcrumbs = Array.isArray(breadcrumbs) && breadcrumbs.length > 0;
 
   const helmetSettings = helmetSettingsFromMetadata(metadata);
+
   return (
     <Layout>
       <Helmet {...helmetSettings} />
@@ -51,12 +51,6 @@ export default function Page({ page, breadcrumbs }) {
         siteTitle={siteMetadata.title}
         slug={slug}
       />
-
-      <h1 className={styles.title}>{title}</h1>
-      <WebsiteImage
-          src={featuredImage.sourceUrl}
-      />
-
       <Content>
         <Section>
           <Container>
@@ -158,7 +152,7 @@ export async function getStaticPaths() {
 
       return {
         params: {
-          slugParent: 'portfolio',
+          slugParent: segments.shift(),
           slugChild: segments,
         },
       };

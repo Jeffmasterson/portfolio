@@ -30,37 +30,6 @@ const Nav = () => {
     maxResults: 5,
   });
 
-  const searchIsLoaded = state === SEARCH_STATE_LOADED;
-
-  // When the search visibility changes, we want to add an event listener that allows us to
-  // detect when someone clicks outside of the search box, allowing us to close the results
-  // when focus is drawn away from search
-
-  useEffect(() => {
-    // If we don't have a query, don't need to bother adding an event listener
-    // but run the cleanup in case the previous state instance exists
-
-    if (searchVisibility === SEARCH_HIDDEN) {
-      removeDocumentOnClick();
-      return;
-    }
-
-    addDocumentOnClick();
-    addResultsRoving();
-
-    // When the search box opens up, additionall find the search input and focus
-    // on the element so someone can start typing right away
-
-    const searchInput = Array.from(formRef.current.elements).find((input) => input.type === 'search');
-
-    searchInput.focus();
-
-    return () => {
-      removeResultsRoving();
-      removeDocumentOnClick();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchVisibility]);
 
   /**
    * addDocumentOnClick
@@ -187,47 +156,6 @@ const Nav = () => {
             return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
           })}
         </ul>
-        <div className={styles.navSearch}>
-          {searchVisibility === SEARCH_HIDDEN && (
-            <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
-              <span className="sr-only">Toggle Search</span>
-              <FaSearch />
-            </button>
-          )}
-          {searchVisibility === SEARCH_VISIBLE && (
-            <form ref={formRef} action="/search" data-search-is-active={!!query}>
-              <input
-                type="search"
-                name="q"
-                value={query || ''}
-                onChange={handleOnSearch}
-                autoComplete="off"
-                placeholder="Search..."
-                required
-              />
-              <div className={styles.navSearchResults}>
-                {results.length > 0 && (
-                  <ul>
-                    {results.map(({ slug, title }, index) => {
-                      return (
-                        <li key={slug}>
-                          <Link tabIndex={index} href={postPathBySlug(slug)}>
-                            <a>{title}</a>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-                {results.length === 0 && (
-                  <p>
-                    Sorry, not finding anything for <strong>{query}</strong>
-                  </p>
-                )}
-              </div>
-            </form>
-          )}
-        </div>
       </Section>
     </nav>
   );
