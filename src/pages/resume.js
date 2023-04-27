@@ -10,7 +10,7 @@ import FeaturedImage from "../components/FeaturedImage";
 
 export default function ({ page, pagination }) {
     const title = 'Resume';
-    const metaDescription = 'Buy the latest Cosmo gear';
+    const metaDescription = 'Jeff Masterson Resume';
 
     return (
         <Layout>
