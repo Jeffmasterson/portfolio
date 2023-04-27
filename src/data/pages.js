@@ -169,3 +169,31 @@ export const QUERY_PAGE_SEO_BY_URI = gql`
     }
   }
 `;
+
+export function getQueryPageById(id) {
+  return gql`
+    query PageById {
+      page(id: "${id}") {
+        content
+        featuredImage {
+          node {
+            altText
+            caption
+            id
+            sizes
+            sourceUrl
+            srcSet
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
+        id
+        menuOrder
+        slug
+        title
+      }
+    }
+  `;
+}

@@ -4,6 +4,7 @@ import {
   QUERY_ALL_PAGES_INDEX,
   QUERY_ALL_PAGES_ARCHIVE,
   QUERY_ALL_PAGES,
+  getQueryPageById,
   QUERY_PAGE_BY_URI,
   QUERY_PAGE_SEO_BY_URI,
 } from 'data/pages';
@@ -206,4 +207,24 @@ export function getBreadcrumbsByUri(uri, pages) {
   breadcrumbs.reverse();
 
   return breadcrumbs;
+}
+
+/**
+ * getPageById
+ */
+
+export async function getPageById(id) {
+  const apolloClient = getApolloClient();
+
+  const data = await apolloClient.query({
+    query: getQueryPageById(id),
+  });
+
+  if (!data?.data.page) return { page: undefined };
+
+  const page = [data?.data.page].map(mapPageData)[0];
+
+  return {
+    page,
+  };
 }
