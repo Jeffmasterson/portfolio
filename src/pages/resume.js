@@ -1,10 +1,6 @@
-
 import { WebsiteJsonLd } from 'lib/json-ld';
-
 import Layout from 'components/Layout';
 import Header from 'components/Header';
-import Head from "../components/Head";
-
 import styles from 'styles/pages/Resume.module.scss';
 import {getPaginatedPosts} from "../lib/portfolio";
 
@@ -14,14 +10,6 @@ export default function () {
 
     return (
         <Layout>
-            <Head
-                title={title}
-                description={metaDescription}
-                ogImage={{
-                    title,
-                    layout: 'page',
-                }}
-            />
             <WebsiteJsonLd siteTitle={title}/>
             <Header>
                 <div className={styles.resumeContainer}>
