@@ -51,6 +51,19 @@ export default function Page({ page, breadcrumbs }) {
         siteTitle={siteMetadata.title}
         slug={slug}
       />
+
+      <Header>
+        {hasBreadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
+        {featuredImage && (
+          <FeaturedImage
+            {...featuredImage}
+            src={featuredImage.sourceUrl}
+            dangerouslySetInnerHTML={featuredImage.caption}
+          />
+        )}
+        <h1 className={styles.title}>{title}</h1>
+      </Header>
+
       <Content>
         <Section>
           <Container>
