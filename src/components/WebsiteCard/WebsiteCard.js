@@ -9,9 +9,9 @@ import styles from './WebsiteCard.module.scss';
 import FeaturedImage from "../FeaturedImage";
 
 const WebsiteCard = ({ post, options = {} }) => {
-  const { title, excerpt, featuredImage, slug, date, author, categories, isSticky = false } = post;
+  const { title, excerpt,websiteInfo, featuredImage, slug, date, author, categories, isSticky = false } = post;
   const { excludeMetadata = [] } = options;
-
+  console.log(websiteInfo.linkToThisWebsite)
   const metadata = {};
 
   if (!excludeMetadata.includes('author')) {
@@ -35,33 +35,32 @@ const WebsiteCard = ({ post, options = {} }) => {
   return (
     <div className={postCardStyle}>
       {isSticky && <FaMapPin aria-label="Sticky Post" />}
-      <div className="">
-        <a className="" href="/previous_work/rogers-roofing"></a>
-        <div className={styles.containerImage}>
-          <Link href={postPathBySlug(slug)}>
-            <a>
-              <img src="https://www.jeffmastersonjr.com/wp-content/uploads/2020/10/rogers.jpg"
-                   alt="Avatar" className={styles.WebsiteCardImage}></img>
-            </a>
-          </Link>
-          <div className={styles.overlay}>
-            <div className="text">
-              <Link href={postPathBySlug(slug)}>
-                <a>
-                  <h3
-                      className={styles.WebsiteCardTitle}
-                      dangerouslySetInnerHTML={{
-                        __html: title,
-                      }}
-                  />
-                </a>
-              </Link>
-              <Link href="https://www.rogersroofing.com/">
-                <a className={styles.WebsiteCardLink}>
-                  Visit Site
-                </a>
-              </Link>
-            </div>
+      <div className={styles.containerImage}>
+        <Link href={postPathBySlug(slug)}>
+          <a>
+            <img src={websiteInfo.websitesPhoto.sourceUrl}></img>
+          </a>
+        </Link>
+        <div className={styles.overlay}>
+          <div className="text">
+            <Link href={postPathBySlug(slug)}>
+              <a>
+                <h3
+                    className={styles.WebsiteCardTitle}
+                    dangerouslySetInnerHTML={{
+                      __html: title,
+                    }}
+                />
+              </a>
+            </Link>
+
+            {websiteInfo.linkToThisWebsite && (
+                <Link href={websiteInfo.linkToThisWebsite}>
+                  <a target="_blank" className={styles.WebsiteCardLink}>
+                    Visit Site
+                  </a>
+                </Link>
+            )}
           </div>
         </div>
       </div>

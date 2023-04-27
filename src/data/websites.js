@@ -13,6 +13,24 @@ export const WEBSITE_FIELDS = gql`
         }
       }
     }
+    websiteInfo {
+      fieldGroupName
+      linkToThisWebsite
+      testThis
+      websitesPhoto {
+        sourceUrl
+      }
+    }
+    featuredImage {
+      node {
+        altText
+        caption
+        sourceUrl
+        srcSet
+        sizes
+        id
+      }
+    }
     databaseId
     date
     databaseId
