@@ -15,10 +15,10 @@ export default function () {
                 <div className={styles.resumeContainer}>
                     <div className="col col-md-8">
                         <h1>{title}</h1>
-                        <a href="https://www.jeffmastersonjr.com/wp-content/uploads/2023/04/JeffMastersonResume.pdf"
+                        <a href="https://www.wordpress.jeffmastersonjr.com/wp-content/uploads/2023/04/JeffMastersonResume.pdf"
                            target="_blank" rel="noopener noreferrer">
                             <img className=""
-                                 src="https://www.jeffmastersonjr.com/wp-content/uploads/2023/04/JeffMastersonResume.jpg"></img>
+                                 src="https://www.wordpress.jeffmastersonjr.com/wp-content/uploads/2023/04/JeffMastersonResume.jpg"></img>
                         </a>
                     </div>
                 </div>
