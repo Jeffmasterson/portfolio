@@ -1,30 +1,14 @@
-import { getAllAuthors, getUserByNameSlug, userSlugByName } from 'lib/portfolio';
-import { getPostsByAuthorSlug } from 'lib/posts';
 import { gql } from '@apollo/client';
 import { getApolloClient } from 'lib/apollo-client';
-import {Helmet} from "react-helmet";
 import {WebpageJsonLd} from "../../lib/json-ld";
 import styles from "../../styles/pages/Page.module.scss";
 import WebsiteImage from "../../components/WebsiteImage";
-import Content from "../../components/Content";
-import Section from "../../components/Section";
-import Container from "../../components/Container";
-import Link from "next/link";
 import Layout from "../../components/Layout";
 import useSite from "../../hooks/use-site";
 import usePageMetadata from "../../hooks/use-page-metadata";
 
 
 export default function Websites({ post }) {
-    const { metadata: siteMetadata = {} } = useSite();
-
-    const { metadata } = usePageMetadata({
-        metadata: {
-            ...post,
-            title: post.seo.title,
-            description: post.seo.metaDesc || post.og?.post.seo.metaDesc || `Read more about ${post.seo.title}`,
-        },
-    });
 
     return (
         <Layout>
