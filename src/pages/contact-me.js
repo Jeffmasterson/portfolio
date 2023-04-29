@@ -34,9 +34,6 @@ export default function Page({ page, text }) {
 }
 
 export async function getStaticProps() {
-    const { posts, pagination } = await getPaginatedPosts({
-        queryIncludes: 'archive',
-    });
     return {
         props: {
             text: "<h1 style=\"text-align: center;\">Contact Me</h1>\n" +
