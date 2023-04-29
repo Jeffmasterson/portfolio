@@ -71,6 +71,6 @@ export async function getStaticPaths() {
         paths: data.websites.nodes.map(website => {
             return { params: { slug: website.slug } }
         }),
-        fallback: true
+        fallback: false
     }
 }
