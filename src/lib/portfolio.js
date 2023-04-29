@@ -16,6 +16,7 @@ import {
   QUERY_POST_PER_PAGE,
   QUERY_WEBSITE_BY_SLUG,
 } from 'data/websites';
+import {mapPageData} from "./pages";
 
 
 /**
@@ -129,6 +130,22 @@ const allWebsitesIncludesTypes = {
   archive: QUERY_ALL_WEBSITES_ARCHIVE,
   index: QUERY_ALL_WEBSITES_INDEX,
 };
+
+export async function getAllWebsites(options = {}) {
+  const { queryIncludes = 'index' } = options;
+
+  const apolloClient = getApolloClient();
+
+  const data = await apolloClient.query({
+    query: allWebsitesIncludesTypes[queryIncludes],
+  });
+
+  const pages = data?.data.websites.edges.map(({ node = {} }) => node).map(mapPageData);
+
+  return {
+    pages,
+  };
+}
 
 export async function getAllPosts(options = {}) {
   const { queryIncludes = 'index' } = options;
@@ -392,5 +409,16 @@ export async function getPaginatedPosts({ currentPage = 1, ...options } = {}) {
       currentPage: page,
       pagesCount,
     },
+  };
+}
+
+
+export async function getWebsitesBySlug(slug) {
+  const { users } = await getAllUsers();
+
+  const user = users.find((user) => user.slug === slug);
+
+  return {
+    user,
   };
 }

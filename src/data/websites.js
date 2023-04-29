@@ -1,5 +1,15 @@
 import { gql } from '@apollo/client';
 
+export const PAGE_QUERY = gql`
+  query getWebsiteBySlug($slug: String!) {
+    websiteBy(slug: $slug) {
+      id
+      title
+      content
+    }
+  }
+`;
+
 export const WEBSITE_FIELDS = gql`
   fragment WebsiteFields on Website {
     id
@@ -251,9 +261,17 @@ export const QUERY_POST_PER_PAGE = gql`
   }
 `;
 
+export const QUERY_WEBSITES_BY_SLUG = gql`
+    query PortfolioSlugs {
+      websites {
+        slug
+      }
+    }
+`;
+
 export const QUERY_WEBSITE_BY_SLUG = gql`
   query PostBySlug($slug: ID!) {
-    post(id: $slug, idType: SLUG) {
+    website(id: $slug, idType: SLUG) {
       author {
         node {
           avatar {

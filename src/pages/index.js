@@ -4,12 +4,6 @@ import { WebsiteJsonLd } from 'lib/json-ld';
 
 import Layout from 'components/Layout';
 import Header from 'components/HomeHeader';
-import Section from 'components/Section';
-import Container from 'components/Container';
-import WebsiteCard from 'components/PostCard';
-import Pagination from 'components/Pagination';
-
-import styles from 'styles/pages/Home.module.scss';
 
 export default function Home({ posts, pagination }) {
   const { metadata = {} } = useSite();

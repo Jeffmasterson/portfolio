@@ -1,11 +1,11 @@
-import { getPaginatedPosts } from 'lib/portfolio';
+import { getPaginatedPosts } from 'lib/posts';
 import usePageMetadata from 'hooks/use-page-metadata';
 
-import TemplateArchive from 'templates/website-archive';
+import TemplateArchive from 'templates/archive';
 
 export default function Posts({ posts, pagination }) {
   const title = `All Posts`;
-  const slug = 'portfolio';
+  const slug = 'po';
 
   const { metadata } = usePageMetadata({
     metadata: {
@@ -35,7 +35,7 @@ export async function getStaticProps({ params = {} } = {}) {
       posts,
       pagination: {
         ...pagination,
-        basePath: '/portfolio',
+        basePath: '/posts',
       },
     },
   };
