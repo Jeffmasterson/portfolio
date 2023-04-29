@@ -38,7 +38,7 @@ const WebsiteCard = ({ post, options = {} }) => {
       <div className={styles.containerImage}>
         <Link href={postPathBySlug(slug)}>
           <a>
-            <img src={websiteInfo.websitesPhoto.sourceUrl}></img>
+            <img src={websiteInfo.websitesPhoto.sourceUrl} alt=""></img>
           </a>
         </Link>
         <div className={styles.overlay}>
