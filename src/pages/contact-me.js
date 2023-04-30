@@ -31,9 +31,12 @@ export default function Page({ page, text }) {
                             <div className={styles.inputWrap}>
                                 <input placeholder="Email" type="email" name="email"/>
                             </div>
+                            <div className={styles.inputWrapText}>
+                                <textarea placeholder="What can I help you with?" />
+                            </div>
                             <input type="hidden" name="form-name" value="contact" />
                             <div className={styles.buttonWrap}>
-                                <button type="submit">Send</button>
+                                <button type="submit">Submit</button>
                             </div>
                         </form>
                     </Container>
