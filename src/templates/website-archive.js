@@ -1,17 +1,11 @@
 import { Helmet } from 'react-helmet';
-
 import { WebpageJsonLd } from 'lib/json-ld';
 import { helmetSettingsFromMetadata } from 'lib/site';
 import useSite from 'hooks/use-site';
-
 import Layout from 'components/Layout';
-import Header from 'components/Header';
 import Section from 'components/Section';
-import Container from 'components/Container';
-import SectionTitle from 'components/SectionTitle';
 import WebsiteCard from 'components/WebsiteCard';
-import Pagination from 'components/Pagination/Pagination';
-
+import Head from 'components/Head';
 import styles from 'styles/templates/WebsiteArchive.module.scss';
 
 const DEFAULT_POST_OPTIONS = {};
@@ -37,11 +31,10 @@ export default function TemplateArchive({
 
     return (
         <Layout>
+
             <Helmet {...helmetSettings} />
 
             <WebpageJsonLd title={title} description={metadata.description} siteTitle={siteMetadata.title} slug={slug} />
-
-
 
             <Section className={styles.WebsiteArchive}>
                     {Array.isArray(posts) && (

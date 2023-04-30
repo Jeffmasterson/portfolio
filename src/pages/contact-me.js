@@ -8,8 +8,7 @@ import Content from 'components/Content';
 import Section from 'components/Section';
 import Container from 'components/Container';
 import FeaturedImage from 'components/FeaturedImage';
-
-import styles from 'styles/pages/Page.module.scss';
+import styles from 'styles/pages/Contact.module.scss';
 
 export default function Page({ page, text }) {
 
@@ -25,6 +24,17 @@ export default function Page({ page, text }) {
                                 __html: text,
                             }}
                         />
+                        <form className={styles.formWrap} name="contact" netlify>
+                            <div className={styles.inputWrap}>
+                                <input placeholder="Name" type="text" name="name"/>
+                            </div>
+                            <div className={styles.inputWrap}>
+                                <input placeholder="Email" type="email" name="email"/>
+                            </div>
+                            <div className={styles.buttonWrap}>
+                                <button type="submit">Send</button>
+                            </div>
+                        </form>
                     </Container>
                 </Section>
             </Content>

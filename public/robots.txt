@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://next-wordpress-starter.spacejelly.dev/sitemap.xml
+Sitemap: http://wordpress.jeffmastersonjr.com/sitemap_index.xml
