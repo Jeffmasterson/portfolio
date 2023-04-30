@@ -37,6 +37,9 @@ export default function Home({ posts, pagination, contentInfo, sites }) {
                   <Link href={sites.siteWordpress.url}>
                       <a target="_blank">{sites.siteWordpress.name}</a>
                   </Link>
+                  <Link href={sites.siteGraph.url}>
+                      <a target="_blank">{sites.siteGraph.name}</a>
+                  </Link>
                   <Link href={sites.siteNext.url}>
                       <a target="_blank">{sites.siteNext.name}</a>
                   </Link>
@@ -65,6 +68,10 @@ export async function getStaticProps() {
           siteWordpress: {
               url:'https://wordpress.org/',
               name:'Wordpress',
+          },
+          siteGraph: {
+              url:'https://graphql.org/',
+              name:'GrapghQL',
           },
           siteNext: {
               url:'https://nextjs.org/',
