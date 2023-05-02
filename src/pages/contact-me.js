@@ -51,7 +51,7 @@ export async function getStaticProps() {
     return {
         props: {
             text: "<h1 style=\"text-align: center;\">Contact Me</h1>\n" +
-                "<p>I am currently located in Pittsburgh Pennsylvania. Feel free to send me an email at <a href=\"mailto:j.mastersonjr@gmail.com\" subject=Contact From Jeff Masterson Website\">j.mastersonjr@gmail.com</a>",
+                "<p>I am currently located in Pittsburgh, Pennsylvania. Feel free to send an email at <a href=\"mailto:j.mastersonjr@gmail.com\" subject=Contact From Jeff Masterson Website\">j.mastersonjr@gmail.com</a>",
             pagination: {
                 basePath: '/contact-me',
             },

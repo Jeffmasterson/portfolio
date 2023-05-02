@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://next-wordpress-starter.spacejelly.dev</loc>
-    <lastmod>2023-04-30T03:47:17.460Z</lastmod>
+    <lastmod>2023-05-02T00:36:32.110Z</lastmod>
   </url>
   <url>
     <loc>https://next-wordpress-starter.spacejelly.dev/resume/</loc>
@@ -22,12 +22,12 @@
   <url>
     <loc>https://next-wordpress-starter.spacejelly.dev/contact-me/</loc>
     <priority>0.3</priority>
-    <lastmod>2023-04-29T08:50:28.000Z</lastmod>
+    <lastmod>2023-04-30T22:42:06.000Z</lastmod>
   </url>
   <url>
     <loc>https://next-wordpress-starter.spacejelly.dev/portfolio/</loc>
     <priority>0.3</priority>
-    <lastmod>2020-10-13T03:40:20.000Z</lastmod>
+    <lastmod>2023-04-30T08:00:06.000Z</lastmod>
   </url>
   <url>
     <loc>https://next-wordpress-starter.spacejelly.dev/home/</loc>
