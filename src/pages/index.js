@@ -27,12 +27,7 @@ export default function Home({ posts, pagination, contentInfo, sites }) {
       <Header>
           <div className={styles.homeHeroContent}>
               <h1>Hi, I'm Jeff. I design & build user interfaces.</h1>
-              <p
-                  className={styles.content}
-                  dangerouslySetInnerHTML={{
-                      __html: contentInfo,
-                  }}
-              />
+              
               <div className={styles.sitesWrapper}>
                   <Link href={sites.siteWordpress.url}>
                       <a target="_blank">{sites.siteWordpress.name}</a>
