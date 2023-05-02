@@ -24,7 +24,7 @@ export default function Page({ page, text }) {
                                 __html: text,
                             }}
                         />
-                        <form className={styles.formWrap} name="contact" data-netlify="true" netlify netlify-honeypot="bot-field">
+                        <form className={styles.formWrap} name="contact" data-netlify="true" netlify="true" netlify-honeypot="bot-field">
                             <div className={styles.inputWrap}>
                                 <input placeholder="Name" type="text" name="name"/>
                             </div>
