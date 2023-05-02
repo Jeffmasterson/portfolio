@@ -27,7 +27,7 @@ export default function Home({ posts, pagination, contentInfo, sites }) {
       <Header>
           <div className={styles.homeHeroContent}>
               <h1>Hi, I'm Jeff. I design & build user interfaces.</h1>
-              <p
+              <h5
                   className={styles.content}
                   dangerouslySetInnerHTML={{
                       __html: contentInfo,
