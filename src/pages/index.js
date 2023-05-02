@@ -3,7 +3,7 @@ import {getPaginatedPosts, postPathBySlug} from 'lib/posts';
 import { WebsiteJsonLd } from 'lib/json-ld';
 import Layout from 'components/Layout';
 import Header from 'components/HomeHeader';
-import Head from 'components/Head';
+
 import styles from 'styles/pages/Home.module.scss';
 import Link from "next/link";
 
@@ -16,13 +16,6 @@ export default function Home({ posts, pagination, contentInfo, sites }) {
 
   return (
     <Layout>
-      <Head
-          title={title}
-          description={metaDescription}
-          ogImage={{
-            layout: 'home',
-          }}
-      />
       <WebsiteJsonLd siteTitle={title} />
       <Header>
           <div className={styles.homeHeroContent}>
