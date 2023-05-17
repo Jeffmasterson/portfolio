@@ -20,13 +20,6 @@ export default function Home({ posts, pagination, contentInfo, sites }) {
         <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-VBWXMJR4BQ"
         />
-        <Script
-            window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-VBWXMJR4BQ');
-        />
       <WebsiteJsonLd siteTitle={title} />
       <Header>
           <div className={styles.homeHeroContent}>
