@@ -3,6 +3,9 @@ import {getPaginatedPosts, postPathBySlug} from 'lib/posts';
 import { WebsiteJsonLd } from 'lib/json-ld';
 import Layout from 'components/Layout';
 import Header from 'components/HomeHeader';
+import ReactGA from 'react-ga';
+const TRACKING_ID = "376562984"; // OUR_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 import styles from 'styles/pages/Home.module.scss';
 import Link from "next/link";
