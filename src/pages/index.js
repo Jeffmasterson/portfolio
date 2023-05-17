@@ -7,7 +7,9 @@ import Header from 'components/HomeHeader';
 import styles from 'styles/pages/Home.module.scss';
 import Link from "next/link";
 
-import Script from "next/script";
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-VBWXMJR4BQ")
 
 export default function Home({ posts, pagination, contentInfo, sites }) {
   const { metadata = {} } = useSite();
@@ -17,9 +19,6 @@ export default function Home({ posts, pagination, contentInfo, sites }) {
 
   return (
     <Layout>
-        <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-VBWXMJR4BQ"
-        />
       <WebsiteJsonLd siteTitle={title} />
       <Header>
           <div className={styles.homeHeroContent}>
