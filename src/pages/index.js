@@ -67,7 +67,7 @@ export async function getStaticProps() {
           },
           siteGraph: {
               url:'https://graphql.org/',
-              name:'GrapghQL',
+              name:'GraphQL',
           },
           siteNext: {
               url:'https://nextjs.org/',
